@@ -36,6 +36,7 @@ namespace API.Controllers
             return newUser;
         }
 
+        [HttpPost("login")]
         public async Task<ActionResult<AppUser>> Login([FromBody] LoginDto loginDto)
         {
             var user = await _context.AppUsers.FirstOrDefaultAsync(m => m.UserName == loginDto.Username.ToLower());
