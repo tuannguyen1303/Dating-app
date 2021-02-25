@@ -19,7 +19,11 @@ namespace API.Controllers
             _tokenService = tokenService;
             _context = context;
         }
-
+        /// <summary>
+        /// Register new user
+        /// </summary>
+        /// <param name="registerDto"></param>
+        /// <returns></returns>
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
@@ -42,7 +46,11 @@ namespace API.Controllers
                 Token = _tokenService.CreateToken(newUser)
             };
         }
-
+        /// <summary>
+        /// Login with exist user
+        /// </summary>
+        /// <param name="loginDto"></param>
+        /// <returns></returns>
         [HttpPost("login")]
         public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
         {
